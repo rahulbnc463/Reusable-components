@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>input hover animation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: rgb(234, 236, 236);
+      }
+      .masterCard {
+        position: relative;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        width: 30%;
+        margin: 10rem auto auto;
+      }
+      .masterCard h2 {
+        position: absolute;
+        top: 6%;
+        left: 26%;
+      }
+      .inputData .underline {
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        bottom: 0;
+      }
+      .inputData .underline::before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: blue;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+      }
+      .inputData input:focus ~ .underline::before,
+      .inputData input:valid ~ .underline::before {
+        transform: scaleX(1);
+      }
+      .inputData {
+        height: 40px;
+        width: 50%;
+        position: relative;
+      }
+      .inputData input {
+        height: 100%;
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        border-bottom: 2px solid #ccc;
+        outline: none;
+        background-color: transparent;
+      }
+      .inputData input:focus ~ label,
+      .inputData input:valid ~ label {
+        transform: translateY(-20px);
+        font-size: 1.5rem;
+        bottom: 15px;
+      }
+      .inputData label {
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+        color: #666;
+        transition: all 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="masterCard">
+      <h2>Input Hover effect</h2>
+      <div class="inputData">
+        <input type="text" required />
+        <div class="underline"></div>
+        <label for="">UserName:</label>
+      </div>
+    </div>
+  </body>
+</html>
